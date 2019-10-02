@@ -6,15 +6,14 @@
     <div class="navbar-default">
       <ul class="nav navbar-nav">
         <li [ngClass]="{ active: currentRoute === 'recipes' }">
-          <a id="recipes" href="#recipes" (click)="changeRoute($event)">
+          <a href="#recipes" (click)="changeRoute('recipes', $event)">
             Recipes
           </a>
         </li>
         <li [ngClass]="{ active: currentRoute === 'shopping-list' }">
           <a
-            id="shopping-list"
             href="#shopping-list"
-            (click)="changeRoute($event)"
+            (click)="changeRoute('shopping-list', $event)"
             >Shopping List</a
           >
         </li>

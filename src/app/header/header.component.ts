@@ -11,10 +11,8 @@ export class HeaderComponent {
     string
   > = new EventEmitter();
 
-  changeRoute(event: Event) {
+  changeRoute(routeName: string, event: Event) {
     event.preventDefault();
-
-    const routeName = (<HTMLElement>event.target).id;
     this.routeChangeEmitter.emit(routeName);
   }
 }
