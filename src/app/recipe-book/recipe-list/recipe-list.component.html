@@ -9,6 +9,7 @@
     <app-recipe-list-item
       *ngFor="let recipeItem of recipes"
       [recipe]="recipeItem"
+      (recipeClicked)="onRecipeClicked(recipeItem)"
     >
     </app-recipe-list-item>
   </div>
