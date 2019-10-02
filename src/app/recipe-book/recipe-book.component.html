@@ -7,7 +7,10 @@
       ></app-recipe-list>
     </div>
     <div class="col-sm-7">
-      <app-recipe-detail *ngIf="selectedRecipe; else noRecipeSelected">
+      <app-recipe-detail
+        [recipe]="selectedRecipe"
+        *ngIf="selectedRecipe; else noRecipeSelected"
+      >
       </app-recipe-detail>
       <ng-template #noRecipeSelected>
         <p>Please select a recipe for Details.</p>
