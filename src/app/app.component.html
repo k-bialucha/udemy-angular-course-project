@@ -1,15 +1,16 @@
-<app-header></app-header>
+<app-header
+  [currentRoute]="route"
+  (routeChanged)="changeRoute($event)"
+></app-header>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h2>Recipes</h2>
-      <app-recipe-book></app-recipe-book>
+      <app-recipe-book *ngIf="route === 'recipes'"></app-recipe-book>
     </div>
   </div>
   <div class="row">
     <div class="col-md-12">
-      <h2>Shopping List</h2>
-      <app-shopping-list></app-shopping-list>
+      <app-shopping-list *ngIf="route === 'shopping-list'"></app-shopping-list>
     </div>
   </div>
 </div>

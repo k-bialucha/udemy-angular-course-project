@@ -5,8 +5,19 @@
     </div>
     <div class="navbar-default">
       <ul class="nav navbar-nav">
-        <li><a href="#">Recipes</a></li>
-        <li><a href="#">Shopping List</a></li>
+        <li [ngClass]="{ active: currentRoute === 'recipes' }">
+          <a id="recipes" href="#recipes" (click)="changeRoute($event)">
+            Recipes
+          </a>
+        </li>
+        <li [ngClass]="{ active: currentRoute === 'shopping-list' }">
+          <a
+            id="shopping-list"
+            href="#shopping-list"
+            (click)="changeRoute($event)"
+            >Shopping List</a
+          >
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
