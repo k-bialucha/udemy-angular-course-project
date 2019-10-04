@@ -1,44 +1,56 @@
-<div class="row" *ngIf="selectedRecipe; else noRecipe">
-  <div class="row">
-    <div class="col-xs-12">
-      <img
-        src="{{ selectedRecipe.imagePath }}"
-        alt="{{ selectedRecipe.name }}"
-        class="img-responsive"
-        style="max-height: 240px"
-      />
+<div class="container-fluid">
+  <div class="row" *ngIf="selectedRecipe; else noRecipe">
+    <div class="row">
+      <div class="col-xs-12">
+        <img
+          src="{{ selectedRecipe.imagePath }}"
+          alt="{{ selectedRecipe.name }}"
+          class="img-responsive"
+          style="max-height: 240px"
+        />
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12">
-      <h3>{{ selectedRecipe.name }}</h3>
+    <div class="row">
+      <div class="col-xs-12">
+        <h2>{{ selectedRecipe.name }}</h2>
+        <p style="font-size: 120%">{{ selectedRecipe.description }}</p>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="button-group" appDropdown>
-        <button type="button" class="btn btn-primary dropdown-toggle">
-          Manage Recipe <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
-          <li><a href="#">To Shopping List</a></li>
-          <li><a href="#">Edit Recipe</a></li>
-          <li><a href="#">Delete Recipe</a></li>
-        </ul>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="button-group" appDropdown>
+          <button type="button" class="btn btn-primary dropdown-toggle">
+            Manage Recipe <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#">To Shopping List</a></li>
+            <li><a href="#">Edit Recipe</a></li>
+            <li><a href="#">Delete Recipe</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <h3 class="panel-title">Ingredients</h3>
+          </div>
+          <div class="panel-body">
+            <ul style="font-size: 110%">
+              <li *ngFor="let ingredient of selectedRecipe.ingredients">
+                <span class="badge">{{ ingredient.amount }}</span>
+                pieces of
+                {{ ingredient.name }}
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-xs-12">
-      {{ selectedRecipe.description }}
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12">
-      Ingredients
-    </div>
-  </div>
+  <ng-template #noRecipe>
+    <p>Please select a recipe for Details.</p>
+  </ng-template>
 </div>
-<ng-template #noRecipe>
-  <p>Please select a recipe for Details.</p>
-</ng-template>
