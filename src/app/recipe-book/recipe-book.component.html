@@ -2,19 +2,10 @@
   <h2>Recipes</h2>
   <div class="row">
     <div class="col-sm-5">
-      <app-recipe-list
-        (recipeClicked)="onRecipeClicked($event)"
-      ></app-recipe-list>
+      <app-recipe-list></app-recipe-list>
     </div>
     <div class="col-sm-7">
-      <app-recipe-detail
-        [recipe]="selectedRecipe"
-        *ngIf="selectedRecipe; else noRecipeSelected"
-      >
-      </app-recipe-detail>
-      <ng-template #noRecipeSelected>
-        <p>Please select a recipe for Details.</p>
-      </ng-template>
+      <app-recipe-detail></app-recipe-detail>
     </div>
   </div>
 </div>
