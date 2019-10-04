@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
+// import { Injectable } from '@angular/core';
 
 import { Recipe } from '../shared/recipe.model';
 
-@Injectable({
-  providedIn: 'root',
-})
+// @Injectable({
+//   providedIn: 'root',
+// })
 export class RecipesService {
-  recipes: Recipe[] = [
+  private _recipes: Recipe[] = [
     new Recipe(
       'The Test Recipe',
       'tasty recipe',
@@ -23,7 +23,9 @@ export class RecipesService {
 
   // public get selectedRecipe(): Recipe {
   //   return this.recipes[this._selectedRecipeId];
-  // }
+  public get recipes(): Recipe[] {
+    return this._recipes.slice();
+  }
 
   selectedRecipe = null;
 
