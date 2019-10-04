@@ -18,7 +18,11 @@ export class ShoppingListService {
   constructor() {}
 
   addIngredient(ingredient: Ingredient) {
-    this._ingredients.push(ingredient);
+    this.addIngredients([ingredient]);
+  }
+
+  addIngredients(ingredients: Ingredient[]) {
+    this._ingredients.push(...ingredients);
     this._eventEmitter.emit();
   }
 }
