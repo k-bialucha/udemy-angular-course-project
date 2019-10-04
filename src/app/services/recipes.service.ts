@@ -1,10 +1,7 @@
-// import { Injectable } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 
 import { Recipe } from '../shared/recipe.model';
 
-// @Injectable({
-//   providedIn: 'root',
-// })
 export class RecipesService {
   private _recipes: Recipe[] = [
     new Recipe(
@@ -18,6 +15,7 @@ export class RecipesService {
       'https://upload.wikimedia.org/wikipedia/commons/c/c5/Korean_food-Tasty_ramyeon-03.jpg'
     ),
   ];
+  recipeSelectedEmitter: EventEmitter<Recipe> = new EventEmitter<Recipe>();
 
   // private _selectedRecipeId: number = 1;
 

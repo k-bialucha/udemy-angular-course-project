@@ -9,7 +9,6 @@
     <app-recipe-list-item
       *ngFor="let recipeItem of recipes; let idx = index"
       [recipe]="recipeItem"
-      (recipeClicked)="onRecipeClicked(idx)"
     >
     </app-recipe-list-item>
   </div>
