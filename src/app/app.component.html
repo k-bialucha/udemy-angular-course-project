@@ -5,12 +5,9 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <app-recipe-book *ngIf="route === 'recipes'"></app-recipe-book>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <app-shopping-list *ngIf="route === 'shopping-list'"></app-shopping-list>
+      <router-outlet></router-outlet>
+      <!-- <app-recipe-book *ngIf="route === 'recipes'"></app-recipe-book> -->
+      <!-- <app-shopping-list *ngIf="route === 'shopping-list'"></app-shopping-list> -->
     </div>
   </div>
 </div>

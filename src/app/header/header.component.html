@@ -5,17 +5,15 @@
     </div>
     <div class="navbar-default">
       <ul class="nav navbar-nav">
-        <li [ngClass]="{ active: currentRoute === 'recipes' }">
-          <a href="#recipes" (click)="changeRoute('recipes', $event)">
+        <li [routerLinkActive]="'active'">
+          <a routerLink="/recipes">
             Recipes
           </a>
+          <!-- (click)="changeRoute('recipes', $event)" -->
         </li>
-        <li [ngClass]="{ active: currentRoute === 'shopping-list' }">
-          <a
-            href="#shopping-list"
-            (click)="changeRoute('shopping-list', $event)"
-            >Shopping List</a
-          >
+        <li [routerLinkActive]="'active'">
+          <a routerLink="/shopping-list">Shopping List</a>
+          <!-- (click)="changeRoute('shopping-list', $event)" -->
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
