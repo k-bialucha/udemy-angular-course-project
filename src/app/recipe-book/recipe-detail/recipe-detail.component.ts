@@ -4,6 +4,7 @@ import { Recipe } from '../../shared/recipe.model';
 
 import { RecipesService } from 'src/app/services/recipes.service';
 import { ShoppingListService } from 'src/app/services/shopping-list.service';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -15,12 +16,15 @@ export class RecipeDetailComponent implements OnInit {
 
   constructor(
     private recipesService: RecipesService,
-    private shoppingListService: ShoppingListService
+    private shoppingListService: ShoppingListService,
+    private currentRoute: ActivatedRoute
   ) {}
 
   ngOnInit() {
-    this.recipesService.recipeSelectedEmitter.subscribe((recipe: Recipe) => {
-      this.selectedRecipe = recipe;
+    this.currentRoute.params.subscribe((params: Params) => {
+      const currentRecipeId = +params.id;
+
+      this.selectedRecipe = this.recipesService.recipes[currentRecipeId];
     });
   }
 

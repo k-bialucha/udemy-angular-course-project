@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div class="row" *ngIf="selectedRecipe; else noRecipe">
+  <div class="row" *ngIf="selectedRecipe">
     <div class="row">
       <div class="col-xs-12">
         <img
@@ -54,7 +54,4 @@
       </div>
     </div>
   </div>
-  <ng-template #noRecipe>
-    <p>Please select a recipe for Details.</p>
-  </ng-template>
 </div>
