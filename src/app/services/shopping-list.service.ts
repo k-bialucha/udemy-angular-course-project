@@ -6,6 +6,7 @@ export class ShoppingListService {
     new Ingredient('Tomatoes', 10),
   ];
   private _eventEmitter: Subject<void> = new Subject();
+  startedItemEditing: Subject<number> = new Subject();
 
   public get ingredients(): Ingredient[] {
     return [...this._ingredients];
