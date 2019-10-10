@@ -4,6 +4,7 @@ import {
   EventEmitter,
   Output,
   OnDestroy,
+  ViewChild,
 } from '@angular/core';
 
 import { Ingredient } from '../../shared/ingredient.model';
@@ -18,7 +19,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./shopping-list-edit.component.scss'],
 })
 export class ShoppingListEditComponent implements OnInit, OnDestroy {
-  // @ViewChild('form', { static: true }) form: NgForm;
+  @ViewChild('form', { static: true }) form: NgForm;
 
   @Output() ingredientAdded = new EventEmitter<Ingredient>();
   private _subscription: Subscription;
@@ -29,15 +30,20 @@ export class ShoppingListEditComponent implements OnInit, OnDestroy {
     return this.editedItemIndex !== null;
   }
 
+  public get editedItem(): Ingredient {
+    return this.shoppingListService.getIngredient(this.editedItemIndex);
+  }
+
   constructor(private shoppingListService: ShoppingListService) {}
 
   ngOnInit() {
-    // this.form.valueChanges.subscribe(value => {
-    //   console.log('some changes', value);
-    // });
     this._subscription = this.shoppingListService.startedItemEditing.subscribe(
       index => {
         this.editedItemIndex = index;
+        this.form.setValue({
+          name: this.editedItem.name,
+          amount: this.editedItem.amount,
+        });
       }
     );
   }
