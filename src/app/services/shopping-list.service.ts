@@ -17,6 +17,10 @@ export class ShoppingListService {
 
   constructor() {}
 
+  getIngredient(index: number) {
+    return this._ingredients[index];
+  }
+
   addIngredient(ingredient: Ingredient) {
     this.addIngredients([ingredient]);
   }
