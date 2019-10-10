@@ -12,7 +12,11 @@ import { ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./recipe-detail.component.scss'],
 })
 export class RecipeDetailComponent implements OnInit {
-  selectedRecipe: Recipe;
+  private _currentRecipeId: number;
+
+  public get selectedRecipe(): Recipe {
+    return this.recipesService.recipes[this._currentRecipeId];
+  }
 
   constructor(
     private recipesService: RecipesService,
@@ -22,13 +26,19 @@ export class RecipeDetailComponent implements OnInit {
 
   ngOnInit() {
     this.currentRoute.params.subscribe((params: Params) => {
-      const currentRecipeId = +params.id;
-
-      this.selectedRecipe = this.recipesService.recipes[currentRecipeId];
+      this._currentRecipeId = params.id;
     });
   }
 
   onSaveToShoppingListClick() {
     this.shoppingListService.addIngredients(this.selectedRecipe.ingredients);
+  }
+
+  onRecipeDelete() {
+    const deleteAllowed = confirm(
+      `Are you sure to delete recipe for ${this.selectedRecipe.name}?`
+    );
+
+    if (deleteAllowed) this.recipesService.deleteRecipe(this._currentRecipeId);
   }
 }
