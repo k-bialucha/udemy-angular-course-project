@@ -9,3 +9,10 @@
 .ingredients-container {
   margin-bottom: 30px;
 }
+
+input,
+textarea {
+  &.ng-invalid.ng-touched {
+    border: 1px solid orangered;
+  }
+}
