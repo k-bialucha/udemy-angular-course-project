@@ -45,4 +45,8 @@ export class RecipeEditComponent implements OnInit {
       description: new FormControl(recipeDescription),
     });
   }
+
+  onSubmit() {
+    console.warn('RecipeEdit form submit', this.form.value);
+  }
 }
