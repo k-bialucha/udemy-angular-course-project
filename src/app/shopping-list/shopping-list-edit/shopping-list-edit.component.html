@@ -35,7 +35,12 @@
           >
             {{ editMode ? 'Update' : 'Add' }}
           </button>
-          <button class="btn btn-danger" type="button">
+          <button
+            class="btn btn-danger"
+            type="button"
+            [disabled]="!editMode"
+            (click)="deleteItem()"
+          >
             Delete
           </button>
           <button class="btn btn-primary" type="button" (click)="clearForm()">
