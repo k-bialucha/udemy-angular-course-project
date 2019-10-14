@@ -95,6 +95,6 @@ export class RecipeEditComponent implements OnInit {
   }
 
   leaveEditForm() {
-    this.router.navigate(['../']);
+    this.router.navigate(['../'], { relativeTo: this.route });
   }
 }
