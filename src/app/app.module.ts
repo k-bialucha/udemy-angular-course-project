@@ -14,11 +14,12 @@ import { RecipeListComponent } from './recipe-book/recipe-list/recipe-list.compo
 import { RecipeListItemComponent } from './recipe-book/recipe-list-item/recipe-list-item.component';
 import { RecipeDetailComponent } from './recipe-book/recipe-detail/recipe-detail.component';
 import { RecipeEditComponent } from './recipe-book/recipe-edit/recipe-edit.component';
+import { RecipeNotSelectedComponent } from './recipe-book/recipe-not-selected/recipe-not-selected.component';
 
 import { DropdownDirective } from './shared/dropdown.directive';
 
+import { RecipesService } from './services/recipes.service';
 import { ShoppingListService } from './services/shopping-list.service';
-import { RecipeNotSelectedComponent } from './recipe-book/recipe-not-selected/recipe-not-selected.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { RecipeNotSelectedComponent } from './recipe-book/recipe-not-selected/re
     RecipeEditComponent,
   ],
   imports: [BrowserModule, FormsModule, ReactiveFormsModule, AppRoutingModule],
-  providers: [ShoppingListService],
+  providers: [RecipesService, ShoppingListService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
